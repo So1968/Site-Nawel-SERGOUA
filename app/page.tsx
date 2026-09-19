@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, Circle, Flower2, Mountain, Quote, Waves } from "lucide-react";
+import { ArrowDown, Circle, Flower2, Menu, Mountain, Quote, Waves } from "lucide-react";
 
 const univers = [
   {
@@ -22,6 +22,27 @@ const univers = [
   },
 ];
 
+const portfolioSeries = [
+  {
+    number: "01",
+    title: "Le couloir du jour",
+    category: "Paysage · série en préparation",
+    text: "Une première entrée pour les œuvres qui travaillent le passage entre obscurité et lumière.",
+  },
+  {
+    number: "02",
+    title: "Le jardin du lettré",
+    category: "Jardin · série en préparation",
+    text: "Un espace pour les peintures où la pierre, l’eau, le pont et le vide organisent le regard.",
+  },
+  {
+    number: "03",
+    title: "Poèmes et inscriptions",
+    category: "Texte · série en préparation",
+    text: "Le lieu d’un dialogue entre les œuvres, les fragments écrits et les images à venir.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="artistSite">
@@ -39,9 +60,29 @@ export default function Home() {
           <Link href="#demarche">Démarche</Link>
           <Link href="#jardin">Jardin</Link>
           <Link href="#poemes">Poèmes</Link>
+          <Link href="#contact">Contact</Link>
         </nav>
 
-        <Link href="/bureau" className="bureauLink">Entrer dans le bureau</Link>
+        <Link href="/bureau" prefetch={false} className="bureauLink">
+          Entrer dans le bureau
+        </Link>
+
+        <details className="mobileMenu">
+          <summary aria-label="Ouvrir le menu">
+            <Menu size={19} aria-hidden="true" />
+            <span className="srOnly">Menu</span>
+          </summary>
+          <div className="mobileMenuPanel">
+            <nav aria-label="Navigation mobile">
+              <Link href="#oeuvres">Œuvres</Link>
+              <Link href="#demarche">Démarche</Link>
+              <Link href="#jardin">Jardin</Link>
+              <Link href="#poemes">Poèmes</Link>
+              <Link href="#contact">Contact</Link>
+              <Link href="/bureau" prefetch={false}>Entrer dans le bureau</Link>
+            </nav>
+          </div>
+        </details>
       </header>
 
       <section className="dawnHero" id="accueil">
@@ -60,7 +101,7 @@ export default function Home() {
             flamboyantes et fugitives, entre le monde visible et le paysage intérieur.
           </p>
           <Link href="#oeuvres" className="discoverLink">
-            Traverser le paysage <ArrowDown size={17} />
+            Traverser le paysage <ArrowDown size={17} aria-hidden="true" />
           </Link>
         </div>
 
@@ -71,7 +112,7 @@ export default function Home() {
         </blockquote>
       </section>
 
-      <section className="worksIntro" id="oeuvres">
+      <section className="worksIntro">
         <div className="sectionHeading">
           <p className="eyebrow">Œuvres et recherches</p>
           <h2>Un paysage ne se regarde pas seulement.<br />Il se parcourt.</h2>
@@ -87,7 +128,7 @@ export default function Home() {
           <article className="universeCard" key={title}>
             <div className="cardTop">
               <span>{number}</span>
-              <Icon size={24} strokeWidth={1.4} />
+              <Icon size={24} strokeWidth={1.4} aria-hidden="true" />
             </div>
             <div className="cardLandscape" aria-hidden="true">
               <span />
@@ -96,6 +137,38 @@ export default function Home() {
             <p>{text}</p>
           </article>
         ))}
+      </section>
+
+      <section className="portfolioSection" id="oeuvres" aria-labelledby="portfolio-title">
+        <div className="portfolioHeading">
+          <div>
+            <p className="eyebrow">Portfolio</p>
+            <h2 id="portfolio-title">Les œuvres prendront place ici.</h2>
+          </div>
+          <p>
+            Une structure claire est prête pour accueillir les photographies, les titres,
+            les dates, les techniques et les dimensions réelles des œuvres.
+          </p>
+        </div>
+
+        <div className="portfolioGrid">
+          {portfolioSeries.map(({ number, title, category, text }, index) => (
+            <article className={`portfolioCard portfolioCard-${index + 1}`} key={title}>
+              <div className="portfolioArtwork" aria-hidden="true">
+                <span />
+              </div>
+              <div className="portfolioCardBody">
+                <div className="portfolioCardTop">
+                  <span>{number}</span>
+                  <small>À compléter</small>
+                </div>
+                <h3>{title}</h3>
+                <p className="portfolioCategory">{category}</p>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="gardenSection" id="jardin">
@@ -115,9 +188,9 @@ export default function Home() {
             L’eau met le paysage en mouvement. Le jardin n’est pas un décor : il organise une pensée.
           </p>
           <div className="gardenSymbols">
-            <span><Circle size={17} /> Porte circulaire</span>
-            <span><Waves size={17} /> Eau et passage</span>
-            <span><Flower2 size={17} /> Orchidée et fleurs du lettré</span>
+            <span><Circle size={17} aria-hidden="true" /> Porte circulaire</span>
+            <span><Waves size={17} aria-hidden="true" /> Eau et passage</span>
+            <span><Flower2 size={17} aria-hidden="true" /> Orchidée et fleurs du lettré</span>
           </div>
         </div>
       </section>
@@ -136,13 +209,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="contactSection" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p className="eyebrow">Contact</p>
+          <h2 id="contact-title">Entrer en relation avec l’atelier.</h2>
+        </div>
+        <div>
+          <p>
+            Cet espace est prêt pour recevoir l’adresse professionnelle, les demandes d’exposition,
+            les collaborations et les informations d’atelier dès qu’elles seront validées par l’artiste.
+          </p>
+          <div className="contactTopics" aria-label="Sujets de contact">
+            <span>Expositions</span>
+            <span>Collaborations</span>
+            <span>Visites d’atelier</span>
+          </div>
+        </div>
+      </section>
+
       <footer className="publicFooter">
         <div>
           <strong>Nawel Sergoua</strong>
           <span>Artiste plasticienne</span>
         </div>
         <p>Peinture · Paysage · Jardin · Poésie</p>
-        <Link href="/bureau">Bureau de l’artiste</Link>
+        <Link href="#contact" className="footerContact">Contact</Link>
+        <Link href="/bureau" prefetch={false}>Bureau de l’artiste</Link>
       </footer>
     </main>
   );

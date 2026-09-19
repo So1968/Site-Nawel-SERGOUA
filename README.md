@@ -22,11 +22,35 @@ Le site ne cherche pas à reproduire un décor chinois. Il construit un espace c
 ## Démarrage
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 Puis ouvrir `http://localhost:3000`.
+
+## Protection du bureau
+
+La route `/bureau` est protégée par une authentification HTTP Basic. Le site public `/` reste accessible sans identifiants.
+
+Pour le développement local :
+
+```bash
+cp .env.example .env.local
+```
+
+Puis remplacer les deux valeurs `BUREAU_USERNAME` et `BUREAU_PASSWORD` dans `.env.local`. Pour une mise en ligne, remplacer aussi `NEXT_PUBLIC_SITE_URL` par l’URL réelle du site. En production, définir ces variables dans l’hébergeur et servir le site en HTTPS. Si les identifiants sont absents, l’accès au bureau est refusé.
+
+## Vérifications
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+# ou l’ensemble en une commande
+npm run verify
+```
+
+Ces trois contrôles sont également exécutés automatiquement par GitHub Actions.
 
 ## Socle technique
 
