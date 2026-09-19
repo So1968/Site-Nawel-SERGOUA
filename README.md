@@ -1,23 +1,29 @@
 # Site Nawel Sergoua
 
-Site public et bureau numérique pour l’artiste plasticienne Nawel Sergoua.
+Site public et bureau numérique pour l’artiste plasticienne Nawel Sergoua, à Goa.
 
-## Intention
+## Périmètre éditorial
 
-Le projet s’appuie sur l’univers du lettré chinois, notamment la période Song : peinture de paysage, jardin traditionnel chinois, pierre, eau, porte circulaire, pont, fleurs symboliques, poésie et travail intérieur.
+Ce dépôt concerne exclusivement Nawel Sergoua. Aucun contenu d’un autre projet artistique
+ne doit y être ajouté.
 
-Le site ne cherche pas à reproduire un décor chinois. Il construit un espace contemporain, contemplatif et vivant, inspiré par :
+Le site doit présenter :
 
-- le passage entre obscurité et lumière ;
-- le « couloir du jour » ;
-- les couleurs d’un lever ou d’un coucher de soleil ;
-- le paysage comme espace extérieur et intérieur ;
-- le jardin comme architecture de la pensée.
+- son histoire et sa biographie ;
+- ses œuvres et ses recherches ;
+- les œuvres disponibles à la vente ;
+- ses expositions et sa participation à la Biennale ;
+- ses projets d’ateliers et de transmission ;
+- son lien avec la matière, la mémoire, l’écologie et le vivant.
+
+Les axes de travail documentés à ce stade sont la sculpture, le relief, le collage,
+l’assemblage, les matériaux récupérés, la mémoire, les origines et la transmission.
+Les informations non validées par l’artiste restent à compléter avant publication.
 
 ## Deux espaces
 
 - `/` : site public de l’artiste ;
-- `/bureau` : bureau de travail, organisé en dossiers symboliques.
+- `/bureau` : bureau de travail, organisé en dossiers de recherche et de production.
 
 ## Démarrage
 
@@ -80,4 +86,5 @@ npm run smoke
 
 ## Statut
 
-Première maquette vivante. Les textes, œuvres, photographies, expositions et coordonnées seront complétés au fur et à mesure.
+Maquette vivante en cours de séparation éditoriale. Les textes définitifs, les œuvres,
+les photographies, les expositions et les coordonnées seront complétés après validation de Nawel.

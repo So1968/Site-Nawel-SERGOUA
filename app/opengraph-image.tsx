@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
+import { nawelProfile } from "@/lib/nawel-content";
 
-export const alt = "Nawel Sergoua — artiste plasticienne";
+export const alt = `${nawelProfile.name} — ${nawelProfile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -17,7 +18,7 @@ export default function OpenGraphImage() {
           padding: "72px 84px",
           color: "#fffaf5",
           background:
-            "linear-gradient(155deg, #e8d7c8 0%, #cc7b87 42%, #655b78 67%, #273247 68%, #182126 100%)",
+            "radial-gradient(ellipse at 76% 22%, rgba(255, 222, 193, .48), transparent 23%), linear-gradient(135deg, #d9c6ba 0%, #b2767c 32%, #454656 64%, #182126 100%)",
           fontFamily: "Georgia, serif",
         }}
       >
@@ -40,27 +41,29 @@ export default function OpenGraphImage() {
             NS
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: "28px" }}>Nawel Sergoua</span>
+            <span style={{ fontSize: "28px" }}>{nawelProfile.name}</span>
             <span style={{ fontSize: "15px", letterSpacing: "3px", opacity: 0.78 }}>
-              ARTISTE PLASTICIENNE
+              {nawelProfile.role.toUpperCase()}
             </span>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", maxWidth: "760px" }}>
           <span style={{ fontSize: "22px", letterSpacing: "5px", opacity: 0.82 }}>
-            ENTRE OBSCURITÉ ET LUMIÈRE
+            MÉMOIRE · MATIÈRE · TRANSMISSION
           </span>
           <span style={{ marginTop: "18px", fontSize: "82px", lineHeight: 0.95 }}>
-            Le couloir du jour
+            {nawelProfile.title}
           </span>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <span style={{ fontSize: "22px", opacity: 0.85 }}>
-            Peinture · Paysage · Jardin · Poésie
+            Sculpture · Relief · Collage · Matière
           </span>
-          <span style={{ fontSize: "42px", opacity: 0.52 }}>山水</span>
+          <span style={{ fontSize: "22px", letterSpacing: "3px", opacity: 0.62 }}>
+            {nawelProfile.location.toUpperCase()}
+          </span>
         </div>
       </div>
     ),

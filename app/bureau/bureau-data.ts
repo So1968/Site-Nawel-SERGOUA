@@ -1,8 +1,8 @@
 export type FolderId =
   | "atelier"
-  | "paysages"
-  | "jardin"
-  | "poemes"
+  | "memoire"
+  | "matiere"
+  | "engagement"
   | "oeuvres"
   | "archives";
 
@@ -23,78 +23,78 @@ export type BureauContent = Readonly<Record<FolderId, FolderContent>>;
 
 export const folders: readonly Folder[] = [
   { id: "atelier", label: "Atelier", subtitle: "travail en cours" },
-  { id: "paysages", label: "Paysages", subtitle: "peintures et recherches" },
-  { id: "jardin", label: "Jardin", subtitle: "formes et symboles" },
-  { id: "poemes", label: "Poèmes", subtitle: "textes et inscriptions" },
-  { id: "oeuvres", label: "Œuvres", subtitle: "catalogue public" },
-  { id: "archives", label: "Archives", subtitle: "matière antérieure" },
+  { id: "memoire", label: "Mémoire", subtitle: "origines et transmission" },
+  { id: "matiere", label: "Matière", subtitle: "relief et assemblage" },
+  { id: "engagement", label: "Engagement", subtitle: "écologie et ateliers" },
+  { id: "oeuvres", label: "Œuvres", subtitle: "catalogue et vente" },
+  { id: "archives", label: "Archives", subtitle: "parcours et documents" },
 ];
 
 export const folderContent: BureauContent = {
   atelier: {
     eyebrow: "Table de travail",
-    title: "Le couloir du jour",
+    title: "Matière en mouvement",
     intro:
-      "Rassembler les images, les couleurs, les mots et les premières décisions autour de la nouvelle série.",
+      "Rassembler les images, les objets, les fragments et les décisions qui accompagnent le travail de Nawel.",
     cards: [
-      ["Recherche active", "Passage entre obscurité et lumière"],
-      ["Matière", "Photographies de coucher de soleil"],
-      ["Prochaine action", "Choisir les premières œuvres à présenter"],
+      ["Recherche active", "Mémoire, matière et transmission"],
+      ["À réunir", "Photographies, notes et fragments"],
+      ["Prochaine action", "Choisir les œuvres à présenter"],
     ],
   },
-  paysages: {
-    eyebrow: "Dossier de recherche",
-    title: "Peinture de paysage",
+  memoire: {
+    eyebrow: "Axe de recherche",
+    title: "Mémoire et transmission",
     intro:
-      "Études de composition, vides, lignes d’eau, montagnes, brumes et perspectives inspirées de la peinture chinoise.",
+      "Documenter les formes qui relient les souvenirs, la famille, les origines, l’histoire et les blessures.",
     cards: [
-      ["Axe 1", "Le paysage comme espace intérieur"],
-      ["Axe 2", "Le chemin du regard"],
-      ["À documenter", "Références de la période Song"],
+      ["Formes", "Volumes, tiroirs et compartiments"],
+      ["Fil", "Ce qui relie les générations"],
+      ["À recueillir", "Récits et textes de l’artiste"],
     ],
   },
-  jardin: {
-    eyebrow: "Architecture symbolique",
-    title: "Le jardin du lettré",
+  matiere: {
+    eyebrow: "Répertoire de travail",
+    title: "Collage, relief et assemblage",
     intro:
-      "Un répertoire vivant de formes : pierre, eau, porte circulaire, pont, pavillon, orchidée et bambou.",
+      "Classer les matières, les détails et les matériaux récupérés qui entrent dans la construction des œuvres.",
     cards: [
-      ["Passage", "Pont en arc et porte circulaire"],
-      ["Éléments", "Pierre · eau · plantes · vide"],
-      ["Question", "Comment faire entrer le visiteur dans le tableau ?"],
+      ["Gestes", "Assembler, superposer, transformer"],
+      ["Matières", "Supports, traces et récupérations"],
+      ["À photographier", "Détails et états intermédiaires"],
     ],
   },
-  poemes: {
-    eyebrow: "Écriture",
-    title: "Poèmes et inscriptions",
+  engagement: {
+    eyebrow: "Projets et liens",
+    title: "Art, écologie et transmission",
     intro:
-      "Textes courts, citations, fragments et poèmes destinés à dialoguer avec les œuvres sans les expliquer entièrement.",
+      "Conserver la mémoire des ateliers, des créations partagées et des projets liés au respect du vivant.",
     cards: [
-      ["Texte repère", "La lumière ouvre un chemin sur l’eau"],
-      ["Forme", "Poème vertical ou inscription discrète"],
-      ["À recueillir", "Écrits antérieurs de l’artiste"],
+      ["Ateliers", "Création avec les enfants et les adolescents"],
+      ["Écologie", "Réemploi, environnement et matière"],
+      ["À documenter", "Projets collectifs et partenaires"],
     ],
   },
   oeuvres: {
     eyebrow: "Catalogue",
     title: "Œuvres à présenter",
     intro:
-      "Préparer une sélection claire avec titre, année, technique, dimensions, série et photographie de qualité.",
+      "Préparer une sélection claire avec titre, année, technique, dimensions, photographie, prix et disponibilité.",
     cards: [
-      ["Sélection", "À constituer avec l’artiste"],
-      ["Classement", "Par séries plutôt que seulement par dates"],
-      ["Site public", "Grandes images et textes courts"],
+      ["Sélection", "À constituer avec Nawel"],
+      ["Classement", "Par œuvres, séries et projets"],
+      ["Vente", "Demandes et modalités à préciser"],
     ],
   },
   archives: {
-    eyebrow: "Matière déjà maîtrisée",
-    title: "Archives et chemin parcouru",
+    eyebrow: "Parcours",
+    title: "Archives et expositions",
     intro:
-      "Retrouver la matière qui précède le travail actuel : œuvres, recherches, gestes, textes et expériences déjà acquis.",
+      "Rassembler les éléments biographiques, les participations à la Biennale, les expositions et les documents utiles.",
     cards: [
-      ["À récupérer", "Photographies des travaux antérieurs"],
-      ["À écouter", "Récit du parcours de l’artiste"],
-      ["But", "Faire apparaître la continuité, pas enfermer dans le passé"],
+      ["À récupérer", "Biographie et parcours"],
+      ["À vérifier", "Dates, lieux et crédits"],
+      ["But", "Rendre le travail visible et accessible"],
     ],
   },
 };

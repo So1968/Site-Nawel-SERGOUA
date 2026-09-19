@@ -4,7 +4,7 @@
   "private": true,
   "description": "Site public et bureau numérique de l’artiste plasticienne Nawel Sergoua.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/next-dev.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { siteUrl } from "@/lib/site-config";
+import { nawelProfile } from "@/lib/nawel-content";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -20,24 +21,34 @@ const inter = Inter({
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Nawel Sergoua",
-  jobTitle: "Artiste plasticienne",
-  description:
-    "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
+  name: nawelProfile.name,
+  jobTitle: nawelProfile.role,
+  description: nawelProfile.description,
   ...(siteUrl ? { url: siteUrl.toString() } : {}),
-  knowsAbout: ["Peinture", "Paysage", "Jardin traditionnel chinois", "Poésie"],
+  homeLocation: {
+    "@type": "Place",
+    name: nawelProfile.location,
+  },
+  knowsAbout: [
+    "Mémoire",
+    "Sculpture",
+    "Peinture en relief",
+    "Collage",
+    "Matériaux récupérés",
+    "Écologie",
+    "Transmission",
+  ],
 };
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Nawel Sergoua — Artiste plasticienne",
-    template: "%s | Nawel Sergoua",
+    default: `${nawelProfile.name} — ${nawelProfile.role}`,
+    template: `%s | ${nawelProfile.name}`,
   },
-  description:
-    "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
-  creator: "Nawel Sergoua",
-  publisher: "Nawel Sergoua",
+  description: nawelProfile.description,
+  creator: nawelProfile.name,
+  publisher: nawelProfile.name,
   formatDetection: {
     email: false,
     address: false,
@@ -51,27 +62,25 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Nawel Sergoua — Artiste plasticienne",
-    description:
-      "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
+    title: `${nawelProfile.name} — ${nawelProfile.role}`,
+    description: nawelProfile.description,
     type: "website",
     locale: "fr_FR",
-    siteName: "Nawel Sergoua",
+    siteName: nawelProfile.name,
     ...(siteUrl ? { url: siteUrl.toString() } : {}),
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Paysage entre obscurité et lumière — Nawel Sergoua",
+        alt: "Mémoire, matière et transmission — Nawel Sergoua",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nawel Sergoua — Artiste plasticienne",
-    description:
-      "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
+    title: `${nawelProfile.name} — ${nawelProfile.role}`,
+    description: nawelProfile.description,
     images: ["/opengraph-image"],
   },
 };
