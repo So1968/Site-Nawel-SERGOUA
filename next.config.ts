@@ -8,6 +8,14 @@ const securityHeaders = [
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
   },
+  ...(process.env.NEXT_PUBLIC_SITE_URL?.trim().startsWith("https://")
+    ? [
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=31536000; includeSubDomains",
+        },
+      ]
+    : []),
 ];
 
 const nextConfig: NextConfig = {

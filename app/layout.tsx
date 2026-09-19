@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { siteUrl } from "@/lib/site-config";
 import "./globals.css";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: siteUrl,
   title: {
     default: "Nawel Sergoua — Artiste plasticienne",
     template: "%s | Nawel Sergoua",
@@ -40,13 +39,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     siteName: "Nawel Sergoua",
-    url: siteUrl,
+    ...(siteUrl ? { url: siteUrl.toString() } : {}),
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Paysage entre obscurité et lumière — Nawel Sergoua",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Nawel Sergoua — Artiste plasticienne",
     description:
       "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
+    images: ["/opengraph-image"],
   },
 };
 

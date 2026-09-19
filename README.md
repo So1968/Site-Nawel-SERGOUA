@@ -40,6 +40,16 @@ cp .env.example .env.local
 
 Puis remplacer les deux valeurs `BUREAU_USERNAME` et `BUREAU_PASSWORD` dans `.env.local`. Pour une mise en ligne, remplacer aussi `NEXT_PUBLIC_SITE_URL` par l’URL réelle du site. En production, définir ces variables dans l’hébergeur et servir le site en HTTPS. Si les identifiants sont absents, l’accès au bureau est refusé.
 
+Exemple de configuration de production :
+
+```text
+NEXT_PUBLIC_SITE_URL=https://votre-domaine.fr
+BUREAU_USERNAME=un-identifiant-personnel
+BUREAU_PASSWORD=un-mot-de-passe-long-et-unique
+```
+
+Ne jamais placer le vrai mot de passe dans GitHub, dans le code ou dans un fichier `.env` suivi par Git.
+
 ## Vérifications
 
 ```bash
