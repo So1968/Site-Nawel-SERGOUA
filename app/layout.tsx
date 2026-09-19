@@ -17,6 +17,17 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nawel Sergoua",
+  jobTitle: "Artiste plasticienne",
+  description:
+    "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
+  ...(siteUrl ? { url: siteUrl.toString() } : {}),
+  knowsAbout: ["Peinture", "Paysage", "Jardin traditionnel chinois", "Poésie"],
+};
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
@@ -25,6 +36,13 @@ export const metadata: Metadata = {
   },
   description:
     "Peinture, paysage, jardin traditionnel chinois et poésie dans l’univers de Nawel Sergoua.",
+  creator: "Nawel Sergoua",
+  publisher: "Nawel Sergoua",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
     canonical: "/",
   },
@@ -67,7 +85,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </body>
     </html>
   );
 }

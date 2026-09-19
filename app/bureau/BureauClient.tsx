@@ -40,7 +40,12 @@ export default function BureauClient({
   const content = folderContent[active];
 
   return (
-    <main className="artistDesk">
+    <>
+      <a className="skipLink" href="#bureau-workspace">
+        Aller à l’espace de travail
+      </a>
+
+      <main className="artistDesk">
       <aside className="deskNav">
         <div className="deskBrand">
           <span className="deskSeal">NS</span>
@@ -168,6 +173,7 @@ export default function BureauClient({
           <strong>Importer les œuvres et choisir les séries.</strong>
         </div>
       </aside>
-    </main>
+      </main>
+    </>
   );
 }

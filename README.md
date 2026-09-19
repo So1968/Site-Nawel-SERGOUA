@@ -38,7 +38,7 @@ Pour le développement local :
 cp .env.example .env.local
 ```
 
-Puis remplacer les deux valeurs `BUREAU_USERNAME` et `BUREAU_PASSWORD` dans `.env.local`. Pour une mise en ligne, remplacer aussi `NEXT_PUBLIC_SITE_URL` par l’URL réelle du site. En production, définir ces variables dans l’hébergeur et servir le site en HTTPS. Si les identifiants sont absents, l’accès au bureau est refusé.
+Puis remplacer les deux valeurs `BUREAU_USERNAME` et `BUREAU_PASSWORD` dans `.env.local`. Le mot de passe doit comporter au moins 16 caractères ; le bureau reste fermé si le secret d’exemple est conservé. Pour une mise en ligne, remplacer aussi `NEXT_PUBLIC_SITE_URL` par l’URL réelle du site. En production, définir ces variables dans l’hébergeur et servir le site en HTTPS. Si les identifiants sont absents ou trop faibles, l’accès au bureau est refusé.
 
 Exemple de configuration de production :
 
@@ -48,7 +48,9 @@ BUREAU_USERNAME=un-identifiant-personnel
 BUREAU_PASSWORD=un-mot-de-passe-long-et-unique
 ```
 
-Ne jamais placer le vrai mot de passe dans GitHub, dans le code ou dans un fichier `.env` suivi par Git.
+Générer un secret aléatoire, par exemple avec `openssl rand -base64 24`. Ces variables doivent être disponibles au moment du build de production, car l’URL publique alimente les métadonnées, le sitemap et les en-têtes HTTPS. Ne jamais placer le vrai mot de passe dans GitHub, dans le code ou dans un fichier `.env` suivi par Git.
+
+Le site ajoute automatiquement une redirection HTTPS en production, des en-têtes de sécurité, une politique CSP, un balisage SEO structuré et un contrôle de fumée exécuté par la CI.
 
 ## Vérifications
 
@@ -61,6 +63,13 @@ npm run verify
 ```
 
 Ces trois contrôles sont également exécutés automatiquement par GitHub Actions.
+
+Pour tester le serveur déjà construit :
+
+```bash
+npm run start -- --hostname 127.0.0.1 --port 3000
+npm run smoke
+```
 
 ## Socle technique
 

@@ -45,7 +45,12 @@ const portfolioSeries = [
 
 export default function Home() {
   return (
-    <main className="artistSite">
+    <>
+      <a className="skipLink" href="#contenu">
+        Aller au contenu principal
+      </a>
+
+      <main className="artistSite" id="contenu">
       <header className="publicHeader">
         <Link href="#accueil" className="artistIdentity">
           <span className="artistSeal" aria-hidden="true">NS</span>
@@ -236,6 +241,7 @@ export default function Home() {
         <Link href="#contact" className="footerContact">Contact</Link>
         <Link href="/bureau" prefetch={false}>Bureau de l’artiste</Link>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }

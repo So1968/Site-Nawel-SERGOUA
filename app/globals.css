@@ -66,6 +66,27 @@ button {
   border: 0;
 }
 
+.skipLink {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(24, 33, 38, 0.18);
+  border-radius: 8px;
+  color: #182126;
+  background: #fffaf3;
+  box-shadow: 0 10px 24px rgba(24, 33, 38, 0.2);
+  font-size: 0.78rem;
+  font-weight: 700;
+  transform: translateY(-180%);
+  transition: transform 160ms ease;
+}
+
+.skipLink:focus-visible {
+  transform: translateY(0);
+}
+
 .artistSite {
   min-height: 100vh;
   overflow: hidden;

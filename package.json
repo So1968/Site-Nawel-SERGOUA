@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "smoke": "node scripts/smoke-test.mjs",
+    "audit:production": "npm audit --omit=dev --audit-level=high",
     "verify": "npm run lint && npm run typecheck && npm run build"
   },
   "engines": {

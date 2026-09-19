@@ -8,6 +8,11 @@ on:
 permissions:
   contents: read
 
+env:
+  NEXT_PUBLIC_SITE_URL: https://example.com
+  BUREAU_USERNAME: ci-user
+  BUREAU_PASSWORD: ci-only-password-2026
+
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -25,5 +30,23 @@ jobs:
       - name: Installer les dépendances
         run: npm ci
 
+      - name: Auditer les dépendances de production
+        run: npm run audit:production
+
       - name: Vérifier le projet
         run: npm run verify
+
+      - name: Démarrer le serveur de production
+        run: |
+          nohup npm run start -- --hostname 127.0.0.1 --port 3100 > "$RUNNER_TEMP/nawel-site.log" 2>&1 &
+
+      - name: Tester le parcours public et privé
+        env:
+          SMOKE_TEST_BASE_URL: http://127.0.0.1:3100
+          EXPECTED_SITE_URL: https://example.com
+          SMOKE_TEST_EXPECT_HTTPS: "1"
+        run: npm run smoke
+
+      - name: Afficher les logs en cas d’échec
+        if: failure()
+        run: cat "$RUNNER_TEMP/nawel-site.log"
