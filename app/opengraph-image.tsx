@@ -61,9 +61,6 @@ export default function OpenGraphImage() {
           <span style={{ fontSize: "22px", opacity: 0.85 }}>
             Sculpture · Relief · Collage · Matière
           </span>
-          <span style={{ fontSize: "22px", letterSpacing: "3px", opacity: 0.62 }}>
-            {nawelProfile.location.toUpperCase()}
-          </span>
         </div>
       </div>
     ),

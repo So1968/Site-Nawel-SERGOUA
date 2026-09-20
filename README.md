@@ -1,6 +1,6 @@
 # Site Nawel Sergoua
 
-Site public et bureau numérique pour l’artiste plasticienne Nawel Sergoua, à Goa.
+Site public et bureau numérique pour l’artiste plasticienne Nawel Sergoua.
 
 ## Périmètre éditorial
 

@@ -25,10 +25,6 @@ const structuredData = {
   jobTitle: nawelProfile.role,
   description: nawelProfile.description,
   ...(siteUrl ? { url: siteUrl.toString() } : {}),
-  homeLocation: {
-    "@type": "Place",
-    name: nawelProfile.location,
-  },
   knowsAbout: [
     "Mémoire",
     "Sculpture",

@@ -62,7 +62,7 @@ export default function Home() {
           </div>
 
           <div className="heroCopy">
-            <p className="eyebrow">{nawelProfile.role} · {nawelProfile.location}</p>
+            <p className="eyebrow">{nawelProfile.role}</p>
             <h1>Mémoire,<br />matière,<br />transmission</h1>
             <p className="heroText">
               Le site de Nawel Sergoua rassemble ses œuvres, ses recherches et ses projets
@@ -152,8 +152,8 @@ export default function Home() {
             <p className="eyebrow">Parcours et projets</p>
             <h2>Une pratique attentive à la mémoire, au vivant et aux autres.</h2>
             <p>
-              Depuis Goa, le site permettra de suivre le parcours de Nawel, ses participations
-              à des expositions et à la Biennale, ainsi que ses expériences d’ateliers et de création partagée.
+              Le site permettra de suivre le parcours de Nawel, ses participations à des expositions
+              et à la Biennale, ainsi que ses expériences d’ateliers et de création partagée.
             </p>
             <div className="practiceSymbols">
               <span><Archive size={17} aria-hidden="true" /> Origines et transmission</span>

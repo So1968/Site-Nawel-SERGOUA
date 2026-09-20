@@ -8,7 +8,6 @@
 export const nawelProfile = {
   name: "Nawel Sergoua",
   role: "Artiste plasticienne",
-  location: "Goa",
   title: "Mémoire, matière, transmission",
   description:
     "Site vitrine de Nawel Sergoua : œuvres, démarche, expositions et projets artistiques autour de la mémoire, de la matière, de l’écologie et de la transmission.",

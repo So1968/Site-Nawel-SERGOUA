@@ -4,7 +4,7 @@ Ce document sert de garde-fou pour éviter toute nouvelle confusion éditoriale.
 
 ## Ce qui appartient à Nawel
 
-- Artiste plasticienne associée à Goa.
+- Artiste plasticienne Nawel Sergoua.
 - Site vitrine présentant son histoire, ses œuvres et leur vente.
 - Participation à la Biennale à documenter dans le parcours.
 - Recherche autour de la mémoire, des origines, de la famille, de l’histoire et de la transmission.
