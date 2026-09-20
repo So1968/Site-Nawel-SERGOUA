@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { nawelProfile } from "@/lib/nawel-content";
 
+export const dynamic = "force-static";
 export const alt = `${nawelProfile.name} — ${nawelProfile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

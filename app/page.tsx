@@ -8,6 +8,8 @@ const univers = [
   { ...nawelThemes[2], icon: Landmark },
 ];
 
+const isStaticExport = process.env.STATIC_EXPORT === "1";
+
 export default function Home() {
   return (
     <>
@@ -32,9 +34,11 @@ export default function Home() {
             <Link href="#contact">Contact</Link>
           </nav>
 
-          <Link href="/bureau" prefetch={false} className="bureauLink">
-            Entrer dans le bureau
-          </Link>
+          {!isStaticExport && (
+            <Link href="/bureau" prefetch={false} className="bureauLink">
+              Entrer dans le bureau
+            </Link>
+          )}
 
           <details className="mobileMenu">
             <summary aria-label="Ouvrir le menu">
@@ -47,7 +51,9 @@ export default function Home() {
                 <Link href="#demarche">Démarche</Link>
                 <Link href="#parcours">Parcours</Link>
                 <Link href="#contact">Contact</Link>
-                <Link href="/bureau" prefetch={false}>Entrer dans le bureau</Link>
+                {!isStaticExport && (
+                  <Link href="/bureau" prefetch={false}>Entrer dans le bureau</Link>
+                )}
               </nav>
             </div>
           </details>
@@ -185,7 +191,9 @@ export default function Home() {
           </div>
           <p>Sculpture · Relief · Collage · Matière</p>
           <Link href="#contact" className="footerContact">Contact</Link>
-          <Link href="/bureau" prefetch={false}>Bureau de l’artiste</Link>
+          {!isStaticExport && (
+            <Link href="/bureau" prefetch={false}>Bureau de l’artiste</Link>
+          )}
         </footer>
       </main>
     </>
